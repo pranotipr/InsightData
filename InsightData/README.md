@@ -10,12 +10,12 @@ The above files only calculates results for individual contributions and ignores
 
 # Approach
 
-##Median Computation: 
+## Median Computation: 
 To calculate the running median of contributions received by recipient from the by zip-code/date, I have facilitated a heap based implementation that keeps the streamed data updated in a heap-based data structure and provides a O(1) retrieval of median at any point in time. The implementation uses a max heap on left side to represent elements that are less than effective median, and a min heap on right side to represent elements that are greater than effective median. This has a total time complexity of O(N log N) which is one of the best among all the known implementations for running median computation.
 
 ## The medianvals by zip computation required output file to contain the same number of records as the input data file minus any records that were not valid. To accomplish this I have performed validation on input as the first step.  Median calculations have been rounded to the whole dollar before they are outputed to the file.
 
-##To maintain the total amount and total number of trasaction for a recepient-zip combination key, I have used HashMap as it allows O(1) time complexity for isertion and retrieval. 
+## To maintain the total amount and total number of trasaction for a recepient-zip combination key, I have used HashMap as it allows O(1) time complexity for isertion and retrieval. 
 
 ## The medianvals by date computation required output record to have lines sorted alphabetical by recipient and then chronologically by date. To facilitate this I have used a Sorted Map (TreeMap) the sorts the recepient-date combination key by implementing Comparable interface and overriding its compareTo() method. 
 
